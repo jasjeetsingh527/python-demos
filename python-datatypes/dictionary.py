@@ -28,3 +28,13 @@ print(dict1["address"]["street"])  # prints 123 Main St
 print(
     dict1.keys()
 )  # prints dict_keys(['name', 'age', 'city', 'is_student', 'courses', 'address'])
+
+# return list of values or items
+print(
+    dict1.values()
+)  # prints dict_values(['Alice', 30, 'New York', False, ['Math', 'Science', 'History'], {'street': '123 Main St', 'zip': '10001'}])
+
+# get method
+print(dict1.get("name"))  # prints Alice
+print(dict1.get("country"))  # prints None, key not found
+print(dict1.get("country", "USA"))  # prints USA, default value if key
