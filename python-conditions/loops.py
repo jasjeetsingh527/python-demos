@@ -1,3 +1,5 @@
+from datetime import datetime
+
 a = "this is a string"
 b = [1, 2, 3, 4, 5]
 c = {1, 2, 3, 4, 5}
@@ -50,5 +52,64 @@ i = 0
 while i <= 50:
     print(i)
     i += 1
+    break
 else:
     print("Done")
+
+
+# Break, Continue, Pass
+for i in range(10):
+    if i == 5:
+        print("Skipping 5")
+        continue  # Skip the rest of the loop for this iteration
+    elif i == 8:
+        print("Breaking at 8")
+        break  # Exit the loop entirely
+    else:
+        print(f"Current number: {i}")
+
+
+# Exercise
+picture = [
+    [0, 0, 0, 1, 0, 0, 0],
+    [0, 0, 1, 1, 1, 0, 0],
+    [0, 1, 1, 1, 1, 1, 0],
+    [1, 1, 1, 1, 1, 1, 1],
+    [0, 0, 0, 1, 0, 0, 0],
+    [0, 0, 0, 1, 0, 0, 0],
+]
+
+
+# my solution
+start_time1 = datetime.now()
+for items in picture:
+    i = 0
+    picture_list = []
+    while i < len(items):
+        picture_list.insert(i, "*" if items[i] == 1 else " ")
+        i += 1
+    print("".join(picture_list))
+
+end_time1 = datetime.now()
+
+print((end_time1 - start_time1) * 1000)
+
+# another way around
+start_time1 = datetime.now()
+for row in picture:
+    for pixel in row:
+        p = "*" if pixel else " "
+        print(p, end="")
+    print("")
+end_time1 = datetime.now()
+print((end_time1 - start_time1) * 1000)
+
+some_list = ["a", "b", "c", "b", "d", "m", "n", "n"]
+duplicate_list = []
+processed_list = []
+for item in some_list:
+    if some_list.count(item) > 1:
+        if item not in duplicate_list:
+            duplicate_list.append(item)
+
+print(f"duplicate letters: {", ".join(duplicate_list)}")
