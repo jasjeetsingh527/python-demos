@@ -33,7 +33,13 @@ class Archer(User):  # (User) indicates inheritance from User class
 
     # Method specific to Archer class - defines how archers attack
     def attack(self):
-        print(f"attacking with no of {self.arrows}")
+        print(f"{self.name} attacking with no of {self.arrows}")
+
+
+class Yeti(Wizard, Archer):
+    def __init__(self, name, power, arrows):
+        Archer.__init__(self, name, arrows)
+        Wizard.__init__(self, name, power)
 
 
 # Creating instances and demonstrating inheritance
@@ -46,3 +52,8 @@ wizard1.attack()  # Calls Wizard's own attack method
 archer1 = Archer("Alice", 800)
 archer1.sign_in()  # Calls inherited method from User class
 archer1.attack()  # Calls Archer's own attack method
+
+yeti1 = Yeti("Jonny", 500, 1000)
+yeti1.attack()
+
+print(Yeti.mro())
